@@ -52,7 +52,7 @@ async def about(ctx):
 @bot.command()
 async def serverintroduction(ctx):
     embed = discord.Embed(title="開発者のサーバーについて...", description="以下のリンクから参加できます。",color=0x77aa27)
-    embed.add_field(name="招待リンク:", value="https://discord.gg/9ayfU9K")
+    embed.add_field(name="招待リンク:", value="https://discord.gg/RXK5fc")
     await ctx.send(embed=embed)
 
 @bot.command()
