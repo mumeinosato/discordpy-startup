@@ -29,7 +29,7 @@ async def embox(title,description,color,message):
 
 @bot.command()
 async def help(ctx):#コマンドを定義するときの関数は必ずContextという引数が渡される。つまり引数を最低一つだけでも書いておかないと動かないので注意
-    embed = discord.Embed(title="ヘルプ", description="このヘルプコマンドにはプレフィックスを書いていないため、\n実行には全て`wb:コマンド名`とする必要があります。",color=0x77aa27)
+    embed = discord.Embed(title="ヘルプ", description="このヘルプコマンドにはプレフィックスを書いていないため、\n実行には全て`mu:コマンド名`とする必要があります。",color=0x77aa27)
     #↑ここのテキストは自分で修正よろしく
     embed.add_field(name="help", value="このコマンドです。",inline=False)
     embed.add_field(name="newinfo", value="新着情報を確認します。",inline=False)
