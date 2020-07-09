@@ -13,7 +13,7 @@ token = os.environ['DISCORD_BOT_TOKEN']
 
 @bot.event
 async def on_ready():
-    await bot.change_presence(activity=discord.Game(f"ヘルプは mu:help | 導入サーバー数: {len(bot.guilds)}"))
+    await bot.change_presence(activity=discord.Game(f"ヘルプは mus:help | 導入サーバー数: {len(bot.guilds)}"))
     
     #status=discord.Status.idle で退席状態に
     
@@ -29,7 +29,7 @@ async def embox(title,description,color,message):
 
 @bot.command()
 async def help(ctx):#コマンドを定義するときの関数は必ずContextという引数が渡される。つまり引数を最低一つだけでも書いておかないと動かないので注意
-    embed = discord.Embed(title="ヘルプ", description="このヘルプコマンドにはプレフィックスを書いていないため、\n実行には全て`mu:コマンド名`とする必要があります。",color=0x77aa27)
+    embed = discord.Embed(title="ヘルプ", description="このヘルプコマンドにはプレフィックスを書いていないため、\n実行には全て`mus:コマンド名`とする必要があります。",color=0x77aa27)
     #↑ここのテキストは自分で修正よろしく
     embed.add_field(name="help", value="このコマンドです。",inline=False)
     embed.add_field(name="newinfo", value="新着情報を確認します。",inline=False)
@@ -79,7 +79,7 @@ async def wiki(ctx, *,arg:str=""):
     ちなみに引数が無いときは空の文字列が自動で入るようになっているけどここの説明は難しいので省略
     """
     if not arg:#こうしておくと、文字列が空であるとき(つまりこの場合は引数が渡されなかったとき)にifの中が実行される
-        embed = discord.Embed(title="MumeinosatoのWikiへようこそ！", description="開発者が知っていることや関係することについてwiki形式で紹介します。\n(実行は全て`mi:wiki 単語名`というように行ってください。)",color=0x77aa27)
+        embed = discord.Embed(title="MumeinosatoのWikiへようこそ！", description="開発者が知っていることや関係することについてwiki形式で紹介します。\n(実行は全て`mus:wiki 単語名`というように行ってください。)",color=0x77aa27)
         embed.add_field(name="現在登録されているもの:", value="アスファルト 9: Legends\nNintendo Switch\nTJAPlayer3")
         await ctx.send(embed=embed)
 
