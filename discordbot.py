@@ -7,7 +7,7 @@ from discord.ext import commands
 import os
 import traceback
 
-bot = commands.Bot(command_prefix="mu:", help_command=None)
+bot = commands.Bot(command_prefix="mus:", help_command=None)
 token = os.environ['DISCORD_BOT_TOKEN']
 
 
@@ -103,7 +103,7 @@ async def on_message(message):
 
     if bot.user in message.mentions:
         print(f"{message.author.name}にメンションされました")
-        await message.channel.send(f"{message.author.mention} ヘルプが必要なのか？\nmi:help でヘルプを表示しろよ")
+        await message.channel.send(f"{message.author.mention} ヘルプが必要なのか？\nmus:help でヘルプを表示しろよ")
         
     elif message.content == "wb:dice":
         await embox("サイコロコマンドが実行されました",f"何が出るかな？！何が出るかな？！\n\n実行者:{message.author.name}",0x77aa27,message)
