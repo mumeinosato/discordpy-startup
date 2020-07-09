@@ -13,7 +13,7 @@ token = os.environ['DISCORD_BOT_TOKEN']
 
 @bot.event
 async def on_ready():
-    await bot.change_presence(activity=discord.Game(f"ヘルプは wb:help | 導入サーバー数: {len(bot.guilds)}"))
+    await bot.change_presence(activity=discord.Game(f"ヘルプは mu:help | 導入サーバー数: {len(bot.guilds)}"))
     
     #status=discord.Status.idle で退席状態に
     
@@ -43,8 +43,8 @@ async def help(ctx):#コマンドを定義するときの関数は必ずContext�
 @bot.command()
 async def about(ctx):
     embed = discord.Embed(title="このbotについて...", description="Weabot / うぇあぼっと",color=0x77aa27)
-    embed.add_field(name="製作者", value="うぇあChannel#6928",inline=True)
-    embed.add_field(name="バージョン", value="Ver.1.6b\nコマンドフレームワーク移行版",inline=False)
+    embed.add_field(name="製作者", value="Mumeinosato#7252",inline=True)
+    embed.add_field(name="バージョン", value="Ver.1.α\n試験運用版",inline=False)
     embed.add_field(name="このbotを招待", value="[こちら](https://discord.com/oauth2/authorize?client_id=699585993988374628&permissions=379968&scope=bot)から招待できます",inline=False)
     await ctx.send(embed=embed)
 
@@ -57,7 +57,7 @@ async def serverintroduction(ctx):
 
 @bot.command()
 async def newinfo(ctx):
-    await embox("新着情報","\n**2020 6/24** コマンドフレームワークへ移行しました。\n**2020 5/15** 一般公開を開始しました。\n**2020 5/14** help等のコマンドを3つ実装しました。\n**2020 5/2 **  BOTの稼働を開始しました。",0x77aa27,ctx.message)
+    await embox("新着情報","\n**2020 7/9** 試験運用開始。\n**2020 7/9 **  BOTの稼働を開始しました。",0x77aa27,ctx.message)
 
 @bot.command()
 async def test(ctx):
@@ -79,7 +79,7 @@ async def wiki(ctx, *,arg:str=""):
     ちなみに引数が無いときは空の文字列が自動で入るようになっているけどここの説明は難しいので省略
     """
     if not arg:#こうしておくと、文字列が空であるとき(つまりこの場合は引数が渡されなかったとき)にifの中が実行される
-        embed = discord.Embed(title="WeaのWikiへようこそ！", description="開発者が知っていることや関係することについてwiki形式で紹介します。\n(実行は全て`wb:wiki 単語名`というように行ってください。)",color=0x77aa27)
+        embed = discord.Embed(title="MumeinosatoのWikiへようこそ！", description="開発者が知っていることや関係することについてwiki形式で紹介します。\n(実行は全て`mi:wiki 単語名`というように行ってください。)",color=0x77aa27)
         embed.add_field(name="現在登録されているもの:", value="アスファルト 9: Legends\nNintendo Switch\nTJAPlayer3")
         await ctx.send(embed=embed)
 
@@ -103,7 +103,7 @@ async def on_message(message):
 
     if bot.user in message.mentions:
         print(f"{message.author.name}にメンションされました")
-        await message.channel.send(f"{message.author.mention} ヘルプが必要ですか？\nwb:help でヘルプを表示します。")
+        await message.channel.send(f"{message.author.mention} ヘルプが必要なのか？\nmi:help でヘルプを表示しろよ")
         
     elif message.content == "wb:dice":
         await embox("サイコロコマンドが実行されました",f"何が出るかな？！何が出るかな？！\n\n実行者:{message.author.name}",0x77aa27,message)
@@ -113,37 +113,37 @@ async def on_message(message):
         return
 
     elif message.content.startswith("こんにち"):
-        await message.channel.send("こんにちは！")
+        await message.channel.send("こん")
 
     elif message.content.startswith("こんちゃ"):
-        await message.channel.send("こんちゃっちゃ！！")
+        await message.channel.send("こん")
 
     elif message.content.startswith("ども"):
-        await message.channel.send("どうも！")
+        await message.channel.send("どーもです")
 
     elif message.content.startswith("よろし"):
-        await message.channel.send("よろしくお願いします！")
+        await message.channel.send("よろ")
 
     elif message.content.startswith("ただいま"):
-        await message.channel.send("おかえり～")
+        await message.channel.send("おか")
 
     elif message.content.startswith("飯落ち"):
-        await message.channel.send("いってらっしゃい！")
+        await message.channel.send("いってら")
 
     elif message.content.startswith("落ち"):
         await message.channel.send("お疲れ～")
 
     elif message.content.startswith("ばい"):
-        await message.channel.send("ばい～")
+        await message.channel.send("ばーい")
 
     elif message.content.startswith("死ね"):
-        await message.channel.send("暴言はまずいですよ！！")
+        await message.channel.send("そういうのよくないよ")
 
     elif message.content.startswith("おはよ"):
-        await message.channel.send("おはようございます～")
+        await message.channel.send("おは")
         
     elif message.content.startswith("暇"):
-        await message.channel.send("暇ですねぇ...")
+        await message.channel.send("俺も暇だな〜")
         
     elif message.content.startswith("初めまして"):
         await message.channel.send("初めまして！")                                  
