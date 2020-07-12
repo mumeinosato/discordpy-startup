@@ -91,6 +91,61 @@ async def wiki(ctx, *,arg:str=""):
 
     elif arg == "TJAPlayer3":
         await embox("TJAPlayer3","TJAPlayer3 とは、\nWindows向けの太鼓の達人エミュレーターの一つ。\n現在は配布を終了している。(Waybackmachineというツールを使用すればDL可)\n.tja 形式の譜面データと音源ファイルを用意することでプレイ可能。",0x77aa27,ctx.message)
+        
+ @bot.command()
+async def global-chat(ctx):
+	global Global_chat
+	if ctx.message.author.guild_permissions.administrator:
+		if ctx.message.channel.id in Global_chat:
+			e=discord.Embed(title="既に有効です。",description="グローバルチャットではないチャンネルで使用してください。")
+			await ctx.message.channel.send(embed=e)
+		else:
+			
+			e2 = discord.Embed(title="グローバルチャットに仲間が入ってきた!",description=f"{ctx.message.guild.name}がグローバルチャットに参加しました！",timestamp=ctx.message.created_at)
+			e2.set_thumbnail(url=ctx.message.guild.icon_url_as(static_format='png'))
+			e2.set_footer(text=f"現在のチャンネル数：{len(Global_chat)+1}")
+ 			
+			for c in Global_chat:
+				cn=bot.get_channel(c)
+				if cn == None:
+					Global_chat.remove(c)
+				else:
+ 					
+					await cn.send(embed=e2)
+			e=discord.Embed(title=f"チャンネルID`{ctx.message.channel.id}`はグローバルチャットになりました。",description="グローバルチャットではなくするには`mu:global-chatno `を使用してください。")
+			await ctx.message.channel.send(embed=e)
+			e3=discord.Embed(title=f"グローバルチャットのルールについて")
+			e3.add_field(name="宣伝禁止",value="宣伝はしないで下さい。",inline=False)
+			e3.add_field(name="暴言・エロ画像など、不快に感じる行為禁止",value="不快に感じる行為はしないで下さい。",inline=False)
+			r=await ctx.message.channel.send(embed=e3)
+			await r.pin()
+			Global_chat.append(ctx.message.channel.id)
+	else:
+		#権限なかったときの処理
+
+@bot.command()
+async def mu:global-chatno(ctx):
+	global Global_chat
+	if ctx.message.author.guild_permissions.administrator:
+		if ctx.message.channel.id in Global_chat:
+			Global_chat.remove(ctx.message.channel.id)
+			e=discord.Embed(title=f"チャンネルID`{ctx.message.channel.id}`はグローバルチャットではなくなりました。",description="もう一度グローバルチャットにするには`mu:global-chat `を使用してください。")
+			await ctx.message.channel.send(embed=e)
+			e2 = discord.Embed(title="グローバルチャットの仲間が抜けちゃった…",description=f"{ctx.message.guild.name}がグローバルチャットから退出しました。",timestamp=ctx.message.created_at)
+			e2.set_thumbnail(url=ctx.message.guild.icon_url)
+			e2.set_footer(text=f"現在のチャンネル数：{len(Global_chat)}")
+ 			
+			for c in Global_chat:
+				cn=bot.get_channel(c)
+				if cn == None:
+					Global_chat.remove(c)
+				else:
+ 					
+					await cn.send(embed=e2)
+		else:
+			e=discord.Embed(title="ここはグローバルチャットではありません。",description="グローバルチャットで使用してください。")
+			await ctx.message.channel.send(embed=e)
+	else:
 
 @bot.event
 async def on_message(message):
