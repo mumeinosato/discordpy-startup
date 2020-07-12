@@ -112,7 +112,7 @@ async def global_chat(ctx):
 				else:
  					
 					await cn.send(embed=e2)
-			e=discord.Embed(title=f"チャンネルID`{ctx.message.channel.id}`はグローバルチャットになりました。",description="グローバルチャットではなくするには`mu:global-chatno `を使用してください。")
+			e=discord.Embed(title=f"チャンネルID`{ctx.message.channel.id}`はグローバルチャットになりました。",description="グローバルチャットではなくするには`mu:global_chatno `を使用してください。")
 			await ctx.message.channel.send(embed=e)
 			e3=discord.Embed(title=f"グローバルチャットのルールについて")
 			e3.add_field(name="宣伝禁止",value="宣伝はしないで下さい。",inline=False)
