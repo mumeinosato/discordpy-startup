@@ -93,7 +93,7 @@ async def wiki(ctx, *,arg:str=""):
         await embox("TJAPlayer3","TJAPlayer3 とは、\nWindows向けの太鼓の達人エミュレーターの一つ。\n現在は配布を終了している。(Waybackmachineというツールを使用すればDL可)\n.tja 形式の譜面データと音源ファイルを用意することでプレイ可能。",0x77aa27,ctx.message)
         
 @bot.command()
-async def global-chat(ctx):
+async def global_chat(ctx):
 	global Global_chat
 	if ctx.message.author.guild_permissions.administrator:
 		if ctx.message.channel.id in Global_chat:
@@ -124,12 +124,12 @@ async def global-chat(ctx):
 		#権限なかったときの処理
 
 @bot.command()
-async def mu:global-chatno(ctx):
+async def mu:global_chatno(ctx):
 	global Global_chat
 	if ctx.message.author.guild_permissions.administrator:
 		if ctx.message.channel.id in Global_chat:
 			Global_chat.remove(ctx.message.channel.id)
-			e=discord.Embed(title=f"チャンネルID`{ctx.message.channel.id}`はグローバルチャットではなくなりました。",description="もう一度グローバルチャットにするには`mu:global-chat `を使用してください。")
+			e=discord.Embed(title=f"チャンネルID`{ctx.message.channel.id}`はグローバルチャットではなくなりました。",description="もう一度グローバルチャットにするには`mu:global_chat `を使用してください。")
 			await ctx.message.channel.send(embed=e)
 			e2 = discord.Embed(title="グローバルチャットの仲間が抜けちゃった…",description=f"{ctx.message.guild.name}がグローバルチャットから退出しました。",timestamp=ctx.message.created_at)
 			e2.set_thumbnail(url=ctx.message.guild.icon_url)
