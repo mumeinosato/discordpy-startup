@@ -179,11 +179,11 @@ async def on_message(message):
         if cn.guild.me.permissions_in(cn).manage_webhooks:
             if not c == message.channel.id:
                 ch_webhooks = await cn.webhooks()
-                webhook = discord.utils.get(ch_webhooks, name="sevenbot-global-webhook")
+                webhook = discord.utils.get(ch_webhooks, name="mumeinosatobot-global-webhook")
                 if webhook is None:
                             #Make webhook
                             
-                    webhook=await cn.create_webhook(name="sevenbot-global-webhook")
+                    webhook=await cn.create_webhook(name="mumeinosato-global-webhook")
                     
                     continue
                 fl=[]
