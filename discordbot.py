@@ -207,7 +207,6 @@ async def on_message(message):
             if not cn.guild.get_member(bot.user.id).permissions_in(cn).manage_webhooks:
     await message.delete()
         
-
     elif message.content.startswith("こんにち"):
         await message.channel.send("こん")
 
