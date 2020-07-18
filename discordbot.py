@@ -168,6 +168,8 @@ async def on_message(message):
         x = random.randint(1,6) # 50から100の乱数をxに代入
         await embox("結果は、、",f"結果は {str(x)} でした！",0x77aa27,message)
         return
+    
+    elif message.channel.id in Global_chat
 
     elif message.content.startswith("こんにち"):
         await message.channel.send("こん")
