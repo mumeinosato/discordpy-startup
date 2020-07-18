@@ -170,42 +170,43 @@ async def on_message(message):
         return
     
     elif message.channel.id in Global_chat
+         elif message.channel.id in Global_chat
          for c in Global_chat:
-    cn=bot.get_channel(c)
-    
-    if cn == None:
-        Global_chat.remove(c)
-    else:
-        if cn.guild.me.permissions_in(cn).manage_webhooks:
-        if not c == message.channel.id:
-                ch_webhooks = await cn.webhooks()
-                webhook = discord.utils.get(ch_webhooks, name="mumeinosatobot-global-webhook")
-        if webhook is None:
+            cn=bot.get_channel(c)
+   
+            if cn == None:
+                Global_chat.remove(c)
+            else:
+                if cn.guild.me.permissions_in(cn).manage_webhooks:
+                    if not c == message.channel.id:
+                        ch_webhooks = await cn.webhooks()
+                        webhook = discord.utils.get(ch_webhooks, name="sevenbot-global-webhook")
+                        if webhook is None:
                             #Make webhook
-                            
-                    webhook=await cn.create_webhook(name="mumeinosato-global-webhook")
-                    
-                    continue
-                fl=[]
-                for at in message.attachments:
-                    fl.append(await at.to_file())
-                await webhook.send(content=message.content,username=message.author.name+f"(ID:{message.author.id})",avatar_url=message.author.avatar_url_as(format="png"),files=fl)
-        else:
-            await cn.send(embed=e)
-            tmp=False
-            for a in message.attachments:
-                if not tmp:
-                    tmp=True
-                    continue
-                e3=discord.Embed(color=Chat)
-                u=a.url
-                            
-                if "".join(os.path.splitext(os.path.basename(a.filename))[1:])[1:] not in Image_exts:
-                    u=Cant_image
-                e3.set_image(url=u)
-                await cn.send(embed=e3)
-            if not cn.guild.get_member(bot.user.id).permissions_in(cn).manage_webhooks:
-    await message.delete()
+                           
+                            webhook=await cn.create_webhook(name="sevenbot-global-webhook")
+                   
+                            continue
+                        fl=[]
+                        for at in message.attachments:
+                            fl.append(await at.to_file())
+                        await webhook.send(content=message.content,username=message.author.name+f"(ID:{message.author.id})",avatar_url=message.author.avatar_url_as(format="png"),files=fl)
+                else:
+                    await cn.send(embed=e)
+                    tmp=False
+                    for a in message.attachments:
+                        if not tmp:
+                            tmp=True
+                            continue
+                        e3=discord.Embed(color=Chat)
+                        u=a.url
+                           
+                        if "".join(os.path.splitext(os.path.basename(a.filename))[1:])[1:] not in Image_exts:
+                            u=Cant_image
+                        e3.set_image(url=u)
+                        await cn.send(embed=e3)
+                    if not cn.guild.get_member(bot.user.id).permissions_in(cn).manage_webhooks:
+            await message.delete()
         
     elif message.content.startswith("こんにち"):
         await message.channel.send("こん")
