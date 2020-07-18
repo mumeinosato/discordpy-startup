@@ -123,7 +123,7 @@ async def global_chat(ctx):
 		#権限なかったときの処理
 
 @bot.command()
-async def mu:global_chatno(ctx):
+async def global_chatno(ctx):
 	global Global_chat
 	if ctx.message.author.guild_permissions.administrator:
 		if ctx.message.channel.id in Global_chat:
