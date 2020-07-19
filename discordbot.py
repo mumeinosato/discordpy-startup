@@ -170,7 +170,6 @@ async def on_message(message):
         return
     
     elif message.channel.id in Global_chat
-         elif message.channel.id in Global_chat
          for c in Global_chat:
             cn=bot.get_channel(c)
    
