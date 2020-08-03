@@ -122,7 +122,50 @@ async def on_message(message):
         for channel in global_channels:
             # メッセージを埋め込み形式で転送
             await channel.send(embed=embed)     
-        
+ @client.event
+async def on_message(message):
+"""以下メッセージを処理します"""
+    global result, judge
+    if message.author.bot:  # ボットからのメッセージを回避します
+        return
+
+    if message.content == "！じゃんけん":
+        await message.channel.send("最初はぐー、じゃんけん")
+
+        jkbot = random.choice(("ぐー", "ちょき", "ぱー"))
+        draw = "引き分けだよ～"
+        wn = "君の勝ち！"
+        lst = random.choice(("私の勝ち！弱ｗｗｗｗｗｗｗｗｗｗｗｗやめたら？じゃんけん",
+                              "私の勝ちだね(∩´∀｀)∩、また挑戦してね！"))
+
+        def jankencheck(m):
+            return (m.author == message.author) and (m.content in ['ぐー', 'ちょき', 'ぱー'])
+
+        reply = await client.wait_for("message", check=jankencheck)
+        if reply.content == jkbot:
+            judge = draw
+        else:
+            if reply.content == "ぐー":
+                if jkbot == "ちょき":
+                    judge = wn
+                else:
+                    judge = lst
+
+            elif reply.content == "ちょき":
+                if jkbot == "ぱー":
+                    judge = wn
+                else:
+                    judge = lst
+
+            else:
+                if jkbot == "ぐー":
+                    judge = wn
+                else:
+                    judge = lst
+
+        await message.channel.send(judge)
+
+
 @bot.event
 async def on_message(message):
     """
