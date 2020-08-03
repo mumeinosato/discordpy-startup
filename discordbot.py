@@ -169,7 +169,7 @@ async def on_message(message):
 		await embox("結果は、、",f"結果は {str(x)} でした！",0x77aa27,message)
 		return
 	
-	elif message.channel.id in Global_chat
+	elif message.channel.id in Global_chat:
 		for c in Global_chat:
 			cn=bot.get_channel(c)
    
