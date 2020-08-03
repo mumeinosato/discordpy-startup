@@ -124,7 +124,7 @@ async def on_message(message):
             await channel.send(embed=embed)     
 @client.event
 async def on_message(message):
-"""以下メッセージを処理します"""
+#"""以下メッセージを処理します"""
     global result, judge
     if message.author.bot:  # ボットからのメッセージを回避します
         return
