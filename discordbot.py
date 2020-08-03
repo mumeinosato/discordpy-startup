@@ -122,7 +122,7 @@ async def on_message(message):
         for channel in global_channels:
             # メッセージを埋め込み形式で転送
             await channel.send(embed=embed)     
- @client.event
+@client.event
 async def on_message(message):
 """以下メッセージを処理します"""
     global result, judge
