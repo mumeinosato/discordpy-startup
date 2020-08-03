@@ -7,13 +7,13 @@ from discord.ext import commands
 import os
 import traceback
 
-bot = commands.Bot(command_prefix="mu:", help_command=None)
+bot = commands.Bot(command_prefix="mus:", help_command=None)
 token = os.environ['DISCORD_BOT_TOKEN']
 
 
 @bot.event
 async def on_ready():
-    await bot.change_presence(activity=discord.Game(f"ヘルプは mu:help | 導入サーバー数: {len(bot.guilds)}"))
+    await bot.change_presence(activity=discord.Game(f"ヘルプは mus:help | 導入サーバー数: {len(bot.guilds)}"))
     
     #status=discord.Status.idle で退席状態に
     
