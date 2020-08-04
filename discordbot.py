@@ -111,7 +111,7 @@ async def on_message(message):
         # global_channelsはコロッケーグローバル の名前を持つチャンネルのリスト
 
         embed = discord.Embed(title="無名の里グローバル",
-            description=message.content, color=0x00bfff)
+            description=message.content, color=0x4169e1)
 
         embed.set_author(name=message.author.display_name,
             icon_url=message.author.avatar_url_as(format="png"))
