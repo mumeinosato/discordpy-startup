@@ -9,7 +9,7 @@ import traceback
 
 bot = commands.Bot(command_prefix="mus:", help_command=None)
 token = os.environ['DISCORD_BOT_TOKEN']
-
+client = discord.Client()
 
 @bot.event
 async def on_ready():
@@ -92,6 +92,37 @@ async def wiki(ctx, *,arg:str=""):
     elif arg == "TJAPlayer3":
         await embox("TJAPlayer3","TJAPlayer3 とは、\nWindows向けの太鼓の達人エミュレーターの一つ。\n現在は配布を終了している。(Waybackmachineというツールを使用すればDL可)\n.tja 形式の譜面データと音源ファイルを用意することでプレイ可能。",0x4169e1,ctx.message)
 
+servers = print('グローバルチャット利用可能になりました')
+@client.event
+async def on_message(message):
+    if message.author.bot:
+        # もし、送信者がbotなら無視する
+        return
+    GLOBAL_CH_NAME = "無名の里グローバル" # グローバルチャットのチャンネル名
+
+    if message.channel.name == GLOBAL_CH_NAME:
+        # コロッケーグローバルの名前をもつチャンネルに投稿されたので、メッセージを転送する
+
+        await message.delete() # 元のメッセージは削除しておく
+
+        channels = client.get_all_channels()
+        global_channels = [ch for ch in channels if ch.name == GLOBAL_CH_NAME]
+        # channelsはbotの取得できるチャンネルのイテレーター
+        # global_channelsはコロッケーグローバル の名前を持つチャンネルのリスト
+
+        embed = discord.Embed(title="無名の里グローバル",
+            description=message.content, color=0x00bfff)
+
+        embed.set_author(name=message.author.display_name,
+            icon_url=message.author.avatar_url_as(format="png"))
+        embed.set_footer(text=f"{message.guild.name} / {message.channel.name}",
+            icon_url=message.guild.icon_url_as(format="png"))
+        # Embedインスタンスを生成、投稿者、投稿場所などの設定
+
+        for channel in global_channels:
+            # メッセージを埋め込み形式で転送
+            await channel.send(embed=embed)        
+        
 @bot.event
 async def on_message(message):
     """
