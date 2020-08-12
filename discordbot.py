@@ -144,7 +144,7 @@ async def on_message(message):
         await embox("結果は、、",f"結果は {str(x)} だよ　分かったか",0x4169e1,message)
         return
 
-    elif message.content == "!おみくじ":
+    elif message.content == "mus:おみくじ":
         # Embedを使ったメッセージ送信 と ランダムで要素を選択
         embed = discord.Embed(title="おみくじ", description=f"{message.author.mention}さんの今日の運勢は！",
                               color=0x2ECC69)
