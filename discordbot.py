@@ -36,6 +36,7 @@ async def help(ctx):#コマンドを定義するときの関数は必ずContext�
     embed.add_field(name="newinfo", value="新着情報を確認します。",inline=False)
     embed.add_field(name="wiki", value="開発者が知っていること、関係することについてwiki形式で見ることができます。",inline=False)
     embed.add_field(name="dice", value="サイコロを振ることができます。",inline=False)
+    emded.add_field(name="omikuji", value="おみくじを引くことができます。",inline=False)
     embed.add_field(name="ping", value="botのメッセージ送信速度をチェックします。",inline=False)
     embed.add_field(name="about", value="botについてや、botの招待リンクを確認できます。",inline=False)
     embed.add_field(name="support", value="この botのサポートサーバーを表示できます。",inline=False)
@@ -58,7 +59,7 @@ async def support(ctx):
 
 @bot.command()
 async def newinfo(ctx):
-    await embox("新着情報","\n**2020 7/9** 試験運用開始。\n**2020 7/9 **  BOTの稼働を開始しました。",0x4169e1,ctx.message)
+    await embox("新着情報","\n**2020 8/12** おみくじ機能実装。　\n**2020 7/9** 試験運用開始。\n**2020 7/9 **  BOTの稼働を開始しました。",0x4169e1,ctx.message)
 
 @bot.command()
 async def test(ctx):
