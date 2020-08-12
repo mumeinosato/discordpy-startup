@@ -6,6 +6,7 @@ import discord.ext
 from discord.ext import commands
 import os
 import traceback
+import random
 
 bot = commands.Bot(command_prefix="mus:", help_command=None)
 token = os.environ['DISCORD_BOT_TOKEN']
@@ -143,6 +144,14 @@ async def on_message(message):
         await embox("結果は、、",f"結果は {str(x)} だよ　分かったか",0x4169e1,message)
         return
 
+    elif message.content == "!おみくじ":
+        # Embedを使ったメッセージ送信 と ランダムで要素を選択
+        embed = discord.Embed(title="おみくじ", description=f"{message.author.mention}さんの今日の運勢は！",
+                              color=0x2ECC69)
+        embed.set_thumbnail(url=message.author.avatar_url)
+        embed.add_field(name="[運勢] ", value=random.choice(('大吉', '吉', '凶', '大凶')), inline=False)
+        await message.channel.send(embed=embed)
+    
     elif message.content.startswith("こんにち"):
         await message.channel.send("こん")
 
