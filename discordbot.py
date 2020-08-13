@@ -17,7 +17,7 @@ ModeFlag = 0
 @client.event
 async def on_ready():
     # 起動時にメッセージの送信
-    channel = client.get_channel(734156883920814120)
+    channel = client.get_channel(721206081694728222)
     await channel.send('監視してるよ＾＾')
 
 @bot.event
