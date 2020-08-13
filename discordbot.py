@@ -7,10 +7,18 @@ from discord.ext import commands
 import os
 import traceback
 import random
+import sys
 
 bot = commands.Bot(command_prefix="mus:", help_command=None)
 token = os.environ['DISCORD_BOT_TOKEN']
 client = discord.Client()
+ModeFlag = 0
+
+@client.event
+async def on_ready():
+    # 起動時にメッセージの送信
+    channel = client.get_channel(734156883920814120)
+    await channel.send('監視してるよ＾＾')
 
 @bot.event
 async def on_ready():
