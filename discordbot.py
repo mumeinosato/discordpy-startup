@@ -1,4 +1,5 @@
 import discord
+from googlesearch import search
 import random
 import time
 import asyncio
@@ -8,7 +9,6 @@ import os
 import traceback
 import random
 import sys
-from googlesearch import search
 
 bot = commands.Bot(command_prefix="mus:", help_command=None)
 token = os.environ['DISCORD_BOT_TOKEN']
