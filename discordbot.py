@@ -158,7 +158,7 @@ async def on_message(message):
         embed = discord.Embed(title="おみくじ", description=f"{message.author.mention}さんの今日の運勢は！",
                               color=0x2ECC69)
         embed.set_thumbnail(url=message.author.avatar_url)
-        embed.add_field(name="[運勢] ", value=random.choice(('大吉', '吉', '凶', '大凶')), inline=False)
+        embed.add_field(name="[運勢] ", value=random.choice(('大吉', '中吉', '吉', '凶', '大凶')), inline=False)
         await message.channel.send(embed=embed)
     
     elif message.content.startswith("こんにち"):
