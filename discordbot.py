@@ -8,6 +8,7 @@ import os
 import traceback
 import random
 import sys
+from googlesearch import search
 
 bot = commands.Bot(command_prefix="mus:", help_command=None)
 token = os.environ['DISCORD_BOT_TOKEN']
@@ -18,7 +19,7 @@ ModeFlag = 0
 async def on_ready():
     # 起動時にメッセージの送信
     channel = client.get_channel(721206081694728222)
-    await channel.send('監視してるよ＾＾')
+    await channel.send("監視してるよ＾＾")
 
 @bot.event
 async def on_ready():
