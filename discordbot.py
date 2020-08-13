@@ -1,5 +1,4 @@
 import discord
-from googlesearch import search
 import random
 import time
 import asyncio
