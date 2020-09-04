@@ -61,12 +61,6 @@ async def about(ctx):
 
 
 @bot.command()
-async def partnerserver(ctx):
-    embed = discord.Embed(title="サポートサーバーについて...", description="以下のリンクから参加できます。",color=0x4169e1)
-    embed.add_field(name="招待リンク:", value="https://discord.gg/nFtHPAZ")
-    await ctx.send(embed=embed)
-
-@bot.command()
 async def support(ctx):
     embed = discord.Embed(title="サポートサーバーについて...", description="以下のリンクから参加できます。",color=0x4169e1)
     embed.add_field(name="招待リンク:", value="https://discord.gg/nFtHPAZ")
