@@ -193,3 +193,4 @@ async def on_message(message):
     await bot.process_commands(message)#on_messageの定義内の最後にこれを入れないと定義したコマンドが動かなくなる。注意
 
 bot.run(token)
+
