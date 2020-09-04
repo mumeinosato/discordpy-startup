@@ -57,12 +57,7 @@ async def support(ctx):
     embed = discord.Embed(title="サポートサーバーについて...", description="以下のリンクから参加できます。",color=0x4169e1)
     embed.add_field(name="招待リンク:", value="https://discord.gg/csJHtxZ")
     await ctx.send(embed=embed)
-
-@bot.command()
-async def partnerserver(ctx):
-    await embox("提携サーバー","提携サーバー募集中",0x4169e1,ctx.messge)
-                
-    
+                   
 @bot.command()
 async def partnerserver(ctx):
     await embox("新着情報","\n**2020 8/13** おみくじ内容追加。　\n**2020 8/12** おみくじ機能実装。　\n**2020 7/9** 試験運用開始。\n**2020 7/9 **  BOTの稼働を開始しました。",0x4169e1,ctx.message)
