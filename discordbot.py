@@ -101,7 +101,7 @@ async def wiki(ctx, *,arg:str=""):
     elif arg == "TJAPlayer3":
         await embox("TJAPlayer3","TJAPlayer3 とは、\nWindows向けの太鼓の達人エミュレーターの一つ。\n現在は配布を終了している。(Waybackmachineというツールを使用すればDL可)\n.tja 形式の譜面データと音源ファイルを用意することでプレイ可能。",0x4169e1,ctx.message)
 
-    elif arg== "Discord:
+    elif arg== "Discord":
         await embox("Disxord","https://ja.wikipedia.org/wiki/Discord_(ソフトウェア)",0x4169e1,message)
         
 @bot.event
