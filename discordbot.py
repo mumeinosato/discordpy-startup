@@ -82,13 +82,16 @@ async def wiki(ctx, *,arg:str=""):
     ちなみに引数が無いときは空の文字列が自動で入るようになっているけどここの説明は難しいので省略
     """
     if not arg:#こうしておくと、文字列が空であるとき(つまりこの場合は引数が渡されなかったとき)にifの中が実行される
-        embed = discord.Embed(title="MumeinosatoのWikiへようこそ！", description="開発者が知っていることや関係することについてwiki形式で紹介します。\n(実行は全て`mu:wiki カテゴリー名`というように行ってください。)",color=0x4169e1)
+        embed = discord.Embed(title="MumeinosatoのWikiへようこそ！", description="開発者が知っていることや関係することについてwiki形式で紹介します。\n(実行は全て`mu:wiki カテゴリー名又は単語名`というように行ってください。)",color=0x4169e1)
         embed.add_field(name="現在登録されているもの:", value="\nSNS\nゲーム\nTJAPlayer3")
         await ctx.send(embed=embed)
 
     elif arg =="ゲーム":
         await embox("ゲームカテゴリー","登録されているもの \nアスファルト 9: Legends\nTJAPlayer3",0x4169e1,ctx.message)
-                     
+
+    elif arg =="SNS":
+        await embox("SNSカテゴリー","登録されているもの　\nDiscord",0x4169e1,ctx.message)
+            
     elif arg == "アスファルト 9: Legends":#スペースまで一字一句一致してないとifの中が実行されないので変えた方がいいかも
         await embox("アスファルト 9: Legends","アスファルト 9: Legends とは、\nゲームロフトが開発した\niOS、Android、Windows、Nintendo Switch、MacOS で\nプレイできるカーアクションレースゲームのこと。\nアスファルトシリーズ13作目(ナンバリングでは9作目)で、\n実在する車(マシン)を操作し、様々なロケーションでレースを行う。",0x4169e1,ctx.message)
     
@@ -98,6 +101,9 @@ async def wiki(ctx, *,arg:str=""):
     elif arg == "TJAPlayer3":
         await embox("TJAPlayer3","TJAPlayer3 とは、\nWindows向けの太鼓の達人エミュレーターの一つ。\n現在は配布を終了している。(Waybackmachineというツールを使用すればDL可)\n.tja 形式の譜面データと音源ファイルを用意することでプレイ可能。",0x4169e1,ctx.message)
 
+    elif arg== "Discord:
+        await embox("Disxord","https://ja.wikipedia.org/wiki/Discord_(ソフトウェア)",0x4169e1,message)
+        
 @bot.event
 async def on_message(message):
     """
