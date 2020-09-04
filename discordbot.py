@@ -86,6 +86,9 @@ async def wiki(ctx, *,arg:str=""):
         embed.add_field(name="現在登録されているもの:", value="\nSNS\nゲーム\nTJAPlayer3")
         await ctx.send(embed=embed)
 
+    elif arg =="ゲーム":
+        awit embox("ゲームカテゴリー","登録されているもの \nアスファルト 9: Legends\nTJAPlayer3",0x4169e1,ctx.message)
+                     
     elif arg == "アスファルト 9: Legends":#スペースまで一字一句一致してないとifの中が実行されないので変えた方がいいかも
         await embox("アスファルト 9: Legends","アスファルト 9: Legends とは、\nゲームロフトが開発した\niOS、Android、Windows、Nintendo Switch、MacOS で\nプレイできるカーアクションレースゲームのこと。\nアスファルトシリーズ13作目(ナンバリングでは9作目)で、\n実在する車(マシン)を操作し、様々なロケーションでレースを行う。",0x4169e1,ctx.message)
     
