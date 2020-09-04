@@ -83,7 +83,7 @@ async def wiki(ctx, *,arg:str=""):
     """
     if not arg:#こうしておくと、文字列が空であるとき(つまりこの場合は引数が渡されなかったとき)にifの中が実行される
         embed = discord.Embed(title="MumeinosatoのWikiへようこそ！", description="開発者が知っていることや関係することについてwiki形式で紹介します。\n(実行は全て`mu:wiki カテゴリー名`というように行ってください。)",color=0x4169e1)
-        embed.add_field(name="現在登録されているもの:", value="\nSNS\nNintendo Switch\nTJAPlayer3")
+        embed.add_field(name="現在登録されているもの:", value="\nSNS\nゲーム\nTJAPlayer3")
         await ctx.send(embed=embed)
 
     elif arg == "アスファルト 9: Legends":#スペースまで一字一句一致してないとifの中が実行されないので変えた方がいいかも
