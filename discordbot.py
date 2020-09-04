@@ -60,7 +60,7 @@ async def support(ctx):
 
 @bot.command()
 async def partnerserver(ctx):
-    await embox("提携サーバー","\n提携サーバー募集中",0x4169e1,ctx.messge)
+    await embox("提携サーバー","提携サーバー募集中",0x4169e1,ctx.messge)
                 
     
 @bot.command()
