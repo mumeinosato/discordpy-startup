@@ -59,11 +59,11 @@ async def support(ctx):
     await ctx.send(embed=embed)
                    
 @bot.command()
-async def partnerserver(ctx):
-    await embox("新着情報","\n**2020 8/13** おみくじ内容追加。　\n**2020 8/12** おみくじ機能実装。　\n**2020 7/9** 試験運用開始。\n**2020 7/9 **  BOTの稼働を開始しました。",0x4169e1,ctx.message)
-
+async def about(ctx):
+    await embox("新着情報","\n**2020 8/13** おみくじ内容追加。　\n**2020 8/12** おみくじ機能実装。　\n**2020 7/9** 試験運用開始。\n**2020 7/9 **  BOTの稼働を開始しました。",0x4169e1,ctx.message) 
+    
 @bot.command()
-async def test(ctx):
+async def partnerserver(ctx):
     await embox("これはテストコマンドです。","特に意味はありません。",0x4169e1,ctx.message)
 
 @bot.command()
