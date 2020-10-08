@@ -15,20 +15,6 @@ bot = commands.Bot(command_prefix="mus:", help_command=None)
 token = os.environ['DISCORD_BOT_TOKEN']
 client = discord.Client()
 
-citycodes = {
-    "土浦": '080020',
-    "水戸": '080010',
-    "札幌": '016010',
-    "仙台": '040010',
-    "東京": '130010',
-    "横浜": '140010',
-    "名古屋": '230010',
-    "大阪": '270000',
-    "広島": '340010',
-    "福岡": '400010',
-    "鹿児島": '460010',
-    "那覇": '471010'
-}
 
 @bot.event
 async def on_ready():
@@ -104,6 +90,21 @@ async def ping(ctx):
 @client.event
 async def on_ready():
   print("logged in as " + client.user.name)
+
+citycodes = {
+    "土浦": '080020',
+    "水戸": '080010',
+    "札幌": '016010',
+    "仙台": '040010',
+    "東京": '130010',
+    "横浜": '140010',
+    "名古屋": '230010',
+    "大阪": '270000',
+    "広島": '340010',
+    "福岡": '400010',
+    "鹿児島": '460010',
+    "那覇": '471010'
+}
 
 @client.event
 async def on_message(message):
