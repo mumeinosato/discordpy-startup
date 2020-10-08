@@ -1,5 +1,4 @@
 import discord
-from googletrans import Translator
 import random
 import time
 import asyncio
