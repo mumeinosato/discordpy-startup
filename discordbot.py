@@ -10,10 +10,12 @@ import random
 import urllib.request
 import json
 import re
+from googletrans import Translator
 
 bot = commands.Bot(command_prefix="mus:", help_command=None)
 token = os.environ['DISCORD_BOT_TOKEN']
 client = discord.Client()
+translator = Translator()
 
 
 @bot.event
