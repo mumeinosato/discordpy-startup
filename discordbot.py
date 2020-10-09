@@ -95,7 +95,7 @@ async def on_message(message):
         return
 
     if message.content.startswith('!trans'):
-        say = message.content
+        say = message.content print(say)
         say = say[7:]
         if say.find('-') == -1:
             str = say
@@ -123,7 +123,7 @@ async def on_message(message):
             await message.channel.send(embed=embed)
 
     if message.content.startswith('!detect'):
-        say = message.content
+        say = message.content print(say)
         s = say[8:]
         detect = translator.detect(s)
         m = 'この文字列の言語はたぶん ' + detect.lang + ' です。'
