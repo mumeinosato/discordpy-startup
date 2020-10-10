@@ -82,17 +82,6 @@ async def emsay(ctx,*,arg):
   await ctx.send(embed=discord.Embed(description=arg))
 
 @bot.command()
-async def lookup(ctx,arg=None):
-
-    if arg is None:#ユーザーIDが入力されなかった時の処理
-      embed = discord.Embed(title="ユーザー名",description="aaa")
-      await ctx.send(embed=embed)
-
-    elif arg == "ユーザーID入ったときの処理":
-      embed = discord.Embed(title="aaa",description="aaa")
-      await ctx.send(embed=embed)
-
-@bot.command()
 async def test(ctx):
     await embox("これはテストコマンドです。","特に意味はありません。",0x4169e1,ctx.message)
 
