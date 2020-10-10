@@ -91,7 +91,7 @@ async def ping(ctx):
 
 @bot.command()
 async def kick(ctx, arg):   
-    user = discord.utils.get(command.guild.members, name=args[1])
+    user = discord.utils.get(guild.members, name=args)
     await user.kick()
     embed=discord.Embed(title="キックが正常に実行されました", color=0xff0000)
     embed.set_thumbnail(url=user.avatar_url)
