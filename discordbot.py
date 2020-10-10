@@ -91,6 +91,18 @@ async def ping(ctx):
 
 @client.event
 async def on_message(message):
+    if message.content.startswith("/kick"):
+        args = message.content.split()
+        user = discord.utils.get(message.guild.members, name=args[1])
+        await user.kick()
+        embed=discord.Embed(title="キックが正常に実行されました", color=0xff0000)
+        embed.set_thumbnail(url=user.avatar_url)
+        embed.add_field(name="対象", value=user, inline=False)
+        embed.add_field(name="実行", value=message.author, inline=False)
+        await message.channel.send(embed=embed)
+    
+@client.event
+async def on_message(message):
     if message.author.bot:
         return
 
