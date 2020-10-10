@@ -90,7 +90,7 @@ async def ping(ctx):
     #float(ping * 1000)
 
 @bot.command()
-async def kick(ctx):   
+async def kick(ctx, arg):   
     user = discord.utils.get(message.guild.members, name=args[1])
     await user.kick()
     embed=discord.Embed(title="キックが正常に実行されました", color=0xff0000)
