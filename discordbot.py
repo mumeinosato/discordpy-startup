@@ -89,6 +89,17 @@ async def ping(ctx):
     await msg.edit(content=f"測定結果:{round(ping * 1000)}ms")
     #float(ping * 1000)
 
+@bot.command()
+async def kick(ctx):
+    args = message.content.split()
+        user = discord.utils.get(message.guild.members, name=args[1])
+        await user.kick()
+        embed=discord.Embed(title="キックが正常に実行されました", color=0xff0000)
+        embed.set_thumbnail(url=user.avatar_url)
+        embed.add_field(name="対象", value=user, inline=False)
+        embed.add_field(name="実行", value=message.author, inline=False)
+        await message.channel.send(embed=embed)
+    
 @client.event
 async def on_message(message):
     if message.content.startswith("/kick"):
