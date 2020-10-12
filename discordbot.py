@@ -97,7 +97,47 @@ async def ping(ctx):
     await msg.edit(content=f"測定結果:{round(ping * 1000)}ms")
     #float(ping * 1000)
 
-    
+@bot.command()
+async def gban(ctx,mode,uid,reason):
+    if ctx.author.id in [739702692393517076,634763612535390209]:
+        if mode == "add":
+            try:
+                user = await bot.fetch_user(int(uid))
+            except:
+                user = None
+            if user is not None:
+                if td["gban"].get(uid) is None:
+                    async with ctx.typing():
+                        td["gban"][uid] = reason
+                        await rtutil.jwrite("data.json",td)
+                        embed = discord.Embed(
+                            title=f"GBANリストにユーザーが追加されました",
+                            description=f"追加ユーザー：{user} ({user.id})",
+                            color=0xf78279)
+                        embed.add_field(name="理由",value=td["gban"][uid])
+                        embed.set_thumbnail(url=user.avatar_url_as(format="png"))
+                        for tg in bot.guilds:
+                            for tc in tg.text_channels:
+                                if tc.name == "tsuna-gban":
+                                    if user in tc.guild.members:
+                                        await tc.guild.ban(user,reason=f"<TUNA-GBAN>{td['gban'][uid]}")
+                                    await tc.send(embed=embed)
+                    await ctx.send(f"`{uid}`のユーザーをGBANに追加しました。")
+                else:
+                    await ctx.send(f"`{uid}`のユーザーは既に追加されています。")
+            else:
+                await ctx.send(f"`{uid}`のユーザーが見つかりませんでした。")
+        elif mode == "rm":
+            if td["gban"].get(uid) is not None:
+                del td["gban"][uid]
+                await rtutil.jwrite("data.json",td)
+                await ctx.send(f"`{uid}`のユーザーをGBANから削除しました。")
+            else:
+                await ctx.send(f"`{uid}`のユーザーはまだ追加されていません。")
+    else:
+        await ctx.send("はっ？何勝手にGBANできると思っているの？何様のつもり？")
+ 
+
 @client.event
 async def on_message(message):
     if message.content.startswith("/kick"):
