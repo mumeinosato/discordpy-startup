@@ -98,6 +98,22 @@ async def ping(ctx):
     #float(ping * 1000)
 
 @bot.command()
+async def user(ctx,uid):
+    print(f"-user\n|<Author>{ctx.author}")
+    user = await bot.fetch_user(int(uid))
+    s = ""
+    if user.bot:
+        s = "`BOT`"
+    embed = discord.Embed(title=f"{user}{s}",color=color)
+    time = user.created_at+timedelta(hours=9)
+    embed.add_field(name="アイコンURL",value=user.avatar_url_as(format="png"),inline=False)
+    embed.add_field(name="タグ",value=user.discriminator)
+    embed.add_field(name="ID",value=user.id)
+    embed.set_footer(text=f"Discord参加日：{time.strftime('%Y-%m-%d')}")
+    embed.set_thumbnail(url=user.avatar_url_as(format="png"))
+    await ctx.send(embed=embed)    
+    
+@bot.command()
 async def gban(ctx,mode,uid,reason):
     if ctx.author.id in [706373590869606431]:
         if mode == "add":
