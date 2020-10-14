@@ -10,6 +10,7 @@ import random
 import urllib.request
 import json
 import re
+import urllib.request
 from googletrans import Translator
 from datetime import datetime, timedelta
 from discord.ext import tasks
