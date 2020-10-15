@@ -263,6 +263,7 @@ async def on_message(message):
     GLOBAL_CH_NAME = "hoge-global" # グローバルチャットのチャンネル名
 
     if message.channel.name == GLOBAL_CH_NAME:
+                                                           print("success")                                                    
         # hoge-globalの名前をもつチャンネルに投稿されたので、メッセージを転送する
 
         await message.delete() # 元のメッセージは削除しておく
