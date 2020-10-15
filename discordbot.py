@@ -270,9 +270,9 @@ async def on_message(message):
                                                            embed = discord.Embed(title="hoge-global",
                                                                description=message.content, color=0x00bfff)
                                                            embed.set_author(name=message.author.display_name,                                                                            
-            　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　              icon_url=message.author.avatar_url_as(format="png"))
+            　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 icon_url=message.author.avatar_url_as(format="png"))
         　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 embed.set_footer(text=f"{message.guild.name} / {message.channel.name}",
-            　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　              icon_url=message.guild.icon_url_as(format="png"))# Embedインスタンスを生成、投稿者、投稿場所などの設定
+            　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 icon_url=message.guild.icon_url_as(format="png"))# Embedインスタンスを生成、投稿者、投稿場所などの設定
                                    　　　　　　　　　　　　　　 for channel in global_channels:# メッセージを埋め込み形式で転送
             　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　await channel.send(embed=embed)
                                                            
