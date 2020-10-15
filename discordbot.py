@@ -255,7 +255,7 @@ async def on_message(message):
       else:
         await client.send_message(message.channel, "そこの天気はわかりません...")
 
- @client.event
+@client.event
 async def on_message(message):
     if message.author.bot:
         return
