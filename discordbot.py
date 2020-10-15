@@ -266,7 +266,7 @@ async def on_message(message):
                                                            print("success")                                                    
         # hoge-globalの名前をもつチャンネルに投稿されたので、メッセージを転送する
 
-        await message.delete() # 元のメッセージは削除しておく
+                                                           await message.delete() # 元のメッセージは削除しておく
 
         channels = client.get_all_channels()
         global_channels = [ch for ch in channels if ch.name == GLOBAL_CH_NAME]
