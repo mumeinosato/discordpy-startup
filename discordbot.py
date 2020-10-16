@@ -159,6 +159,14 @@ async def wiki(ctx, *,arg:str=""):
 @bot.event
 async def on_message(message):
     """
+    if message.author == bot.user:
+        return
+    
+    if message.author.bot:
+        return
+    
+    """
+    
     if message.channel.name == GLOBAL_CH_NAME:                                                          
         print("success")
         await message.delete() # 元のメッセージは削除しておく
@@ -173,11 +181,9 @@ async def on_message(message):
         for channel in global_channels:# メッセージを埋め込み形式で転送
             await channel.send(embed=embed)
     
-    if message.author == bot.user:
-        return
-    """#Bot判定は下のif文で十分。ちなみにこれは複数行コメントアウト
-    if message.author.bot:
-        return
+    
+    #Bot判定は下のif文で十分。ちなみにこれは複数行コメントアウト
+    
 
     if bot.user in message.mentions:
         print(f"{message.author.name}にメンションされました")
