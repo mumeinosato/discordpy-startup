@@ -158,13 +158,13 @@ async def gban(ctx,mode,uid,reason):
  
 @bot.event
 async def on_member_join(member):
-    CHANNEL_ID = #チャンネルID(int)
+    CHANNEL_ID = 734156883941654679#チャンネルID(int)
     channel = bot.get_channel(CHANNEL_ID)
     await channel.send(str(member.mention)+'さん！ようこそ！')
 
 @bot.event
 async def on_member_remove(member):
-    CHANNEL_ID = #チャンネルID(int)
+    CHANNEL_ID = 734156883941654679#チャンネルID(int)
     channel = bot.get_channel(CHANNEL_ID)
     await channel.send(str(member.mention)+'さん！さよなら！')
                                                            
