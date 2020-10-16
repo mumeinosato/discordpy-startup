@@ -170,7 +170,7 @@ async def on_message(message):
     if message.channel.name == GLOBAL_CH_NAME:                                                          
         print("success")
         await message.delete() # 元のメッセージは削除しておく
-        channels = client.get_all_channels()
+        channels = bot.get_all_channels()
         global_channels = [ch for ch in channels if ch.name == GLOBAL_CH_NAME]
         embed = discord.Embed(title="hoge-global",
             description=message.content, color=0x00bfff)
