@@ -237,15 +237,6 @@ async def on_message(message):
     elif message.content.startswith("草"):
         await message.channel.send("草")
         
-    elif message.content.startswith("無名の里"):
-        await message.channel.send("無名の里(ムメイノサト)は、YouTuber、ゲーム開発者です。　是非YouTubeチャンネルを登録してね！https://www.youtube.com/channel/UCpb92184AP2Ffhyf7u2bD3w?view_as=subscriber")
-        
-    elif message.content.startswith("利用規約"):
-        await message.channel.send("無名の里のコンテンツ利用規約です。https://mumeinosato.wixsite.com/lfkf/白紙ページ")
-        
-    elif message.content.startswith("オーナーのサイト"):
-        await message.channel.send("無名の里のサイトです。https://mumeinosato.wixsite.com/lfkf")
-        
     elif message.content.startswith("だろ"):
         await message.channel.send("そうだよ")
         
