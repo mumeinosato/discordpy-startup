@@ -156,7 +156,18 @@ async def gban(ctx,mode,uid,reason):
     else:
         await ctx.send("はっ？何勝手にGBANできると思っているの？何様のつもり？")
  
+@bot.event
+async def on_member_join(member):
+    CHANNEL_ID = #チャンネルID(int)
+    channel = bot.get_channel(CHANNEL_ID)
+    await channel.send(str(member.mention)+'さん！ようこそ！')
 
+@bot.event
+async def on_member_remove(member):
+    CHANNEL_ID = #チャンネルID(int)
+    channel = bot.get_channel(CHANNEL_ID)
+    await channel.send(str(member.mention)+'さん！さよなら！')
+                                                           
 @client.event
 async def on_message(message):
     if message.content.startswith("/kick"):
