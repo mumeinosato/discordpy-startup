@@ -162,10 +162,12 @@ async def on_message(message):
     if message.author == bot.user:
         return
     
+    """
+    
     if message.author.bot:
         return
     
-    """
+    
     
     if message.channel.name == GLOBAL_CH_NAME:                                                          
         print("success")
