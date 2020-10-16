@@ -17,9 +17,8 @@ from discord.ext import tasks
 
 bot = commands.Bot(command_prefix="mus:", help_command=None)
 token = os.environ['DISCORD_BOT_TOKEN']
-client = discord.Client()
 translator = Translator()
-
+GLOBAL_CH_NAME = "hoge-global" # グローバルチャットのチャンネル名
 
 @bot.event
 async def on_ready():
@@ -266,26 +265,10 @@ async def on_message(message):
       else:
         await client.send_message(message.channel, "そこの天気はわかりません...")
 
-@client.event
-async def on_message(message):
-    if message.author.bot:
-        # もし、送信者がbotなら無視する
-        return
-    GLOBAL_CH_NAME = "hoge-global" # グローバルチャットのチャンネル名
 
-    if message.channel.name == GLOBAL_CH_NAME:                                                          
-        print("success")
-        await message.delete() # 元のメッセージは削除しておく
-        channels = client.get_all_channels()
-        global_channels = [ch for ch in channels if ch.name == GLOBAL_CH_NAME]
-        embed = discord.Embed(title="hoge-global",
-            description=message.content, color=0x00bfff)
-        embed.set_author(name=message.author.display_name,                                                                            
-            icon_url=message.author.avatar_url_as(format="png"))
-        embed.set_footer(text=f"{message.guild.name} / {message.channel.name}",
-            icon_url=message.guild.icon_url_as(format="png"))# Embedインスタンスを生成、投稿者、投稿場所などの設定
-        for channel in global_channels:# メッセージを埋め込み形式で転送
-            await channel.send(embed=embed)
+    
+
+    
                                                            
             
         # Embedインスタンスを生成、投稿者、投稿場所などの設定
@@ -336,6 +319,20 @@ async def wiki(ctx, *,arg:str=""):
 @bot.event
 async def on_message(message):
     """
+    if message.channel.name == GLOBAL_CH_NAME:                                                          
+        print("success")
+        await message.delete() # 元のメッセージは削除しておく
+        channels = client.get_all_channels()
+        global_channels = [ch for ch in channels if ch.name == GLOBAL_CH_NAME]
+        embed = discord.Embed(title="hoge-global",
+            description=message.content, color=0x00bfff)
+        embed.set_author(name=message.author.display_name,                                                                            
+            icon_url=message.author.avatar_url_as(format="png"))
+        embed.set_footer(text=f"{message.guild.name} / {message.channel.name}",
+            icon_url=message.guild.icon_url_as(format="png"))# Embedインスタンスを生成、投稿者、投稿場所などの設定
+        for channel in global_channels:# メッセージを埋め込み形式で転送
+            await channel.send(embed=embed)
+    
     if message.author == bot.user:
         return
     """#Bot判定は下のif文で十分。ちなみにこれは複数行コメントアウト
