@@ -18,7 +18,7 @@ from discord.ext import tasks
 bot = commands.Bot(command_prefix="mus:", help_command=None)
 token = os.environ['DISCORD_BOT_TOKEN']
 translator = Translator()
-
+GLOBAL_CH_NAME = "hoge-global" # グローバルチャットのチャンネル名
 
 @bot.event
 async def on_ready():
@@ -166,7 +166,7 @@ async def on_message(message):
         return
     
     """
-    GLOBAL_CH_NAME = "hoge-global" # グローバルチャットのチャンネル名
+    
     if message.channel.name == GLOBAL_CH_NAME:                                                          
         print("success")
         await message.delete() # 元のメッセージは削除しておく
