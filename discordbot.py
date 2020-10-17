@@ -89,7 +89,7 @@ async def emsay(ctx,*,arg):
 async def test(ctx):
     await embox("これはテストコマンドです。","特に意味はありません。",0x4169e1,ctx.message)
 
-@bot.command(pass_context = True) 
+@あbot.command(pass_context = True) 
 async def kick(ctx, userName: discord.User): 
     await bot.kick(userName)     
     
