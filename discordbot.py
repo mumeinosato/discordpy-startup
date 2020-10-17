@@ -246,17 +246,7 @@ async def on_message(message):
     # google検索モードへの切り替え
     if message.content == '!google':
         ModeFlag = 1
-        await message.channel.send('検索するワードをチャットで発言してね')
-
-    if message.content.startswith("/unban"):
-        args = message.content.split()
-        user = discord.utils.find(lambda banentry: args[1] == banentry.user.name, await message.guild.bans()).user
-        await user.unban()
-        embed=discord.Embed(title="BANを解除しました", color=0xff0000)
-        embed.set_thumbnail(url=user.avatar_url)
-        embed.add_field(name="対象", value=user, inline=False)
-        embed.add_field(name="実行", value=message.author, inline=False)
-        await message.channel.send(embed=embed)                                                      
+        await message.channel.send('検索するワードをチャットで発言してね')                                                
                                                            
     if bot.user in message.mentions:
         print(f"{message.author.name}にメンションされました")
