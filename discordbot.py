@@ -198,7 +198,7 @@ async def on_message(message):
         ModeFlag = 0
         count = 0
         # 日本語で検索した上位5件を順番に表示
-        for url in search(kensaku, lang="jp",num_result = 5):
+        for url in search(kensaku, lang="jp",num_results = 5):
             await message.channel.send(url)
             count += 1
             if(count == 5):
