@@ -20,6 +20,12 @@ token = os.environ['DISCORD_BOT_TOKEN']
 translator = Translator()
 GLOBAL_CH_NAME = "hoge-global" # グローバルチャットのチャンネル名
 ModeFlag = 0
+team_id = [706373590869606431,706373590869606431]
+class MyBot(commands.Bot):
+    async def is_owner(self, user: discord.User):
+        if user.id in team_id:
+            return True
+        return await super().is_owner(user)
 
 @bot.event
 async def on_ready():
