@@ -165,7 +165,7 @@ async def gban(ctx,mode,uid,reason):
             else:
                 await ctx.send(f"`{uid}`のユーザーはまだ追加されていません。")
     else:
-        await ctx.send("GBANコマンドを実行できるのはツナ缶さんだけです。\nGBAN追加してほしい場合,ツナ缶さんに申請してください。")
+        await ctx.send("はぁ何勝手にGbanできると思っているの？")
         
                                                            
 @bot.command()
