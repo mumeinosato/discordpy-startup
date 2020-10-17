@@ -6,7 +6,6 @@ import discord.ext
 from discord.ext import commands
 import os
 import traceback
-import random
 import urllib.request
 import json
 import re
