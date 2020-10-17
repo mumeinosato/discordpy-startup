@@ -14,11 +14,13 @@ import urllib.request
 from googletrans import Translator
 from datetime import datetime, timedelta
 from discord.ext import tasks
+from googlesearch import search
 
 bot = commands.Bot(command_prefix="mus:", help_command=None)
 token = os.environ['DISCORD_BOT_TOKEN']
 translator = Translator()
 GLOBAL_CH_NAME = "hoge-global" # グローバルチャットのチャンネル名
+ModeFlag = 0
 
 @bot.event
 async def on_ready():
@@ -185,7 +187,26 @@ async def on_message(message):
     
     
     #Bot判定は下のif文で十分。ちなみにこれは複数行コメントアウト
-    
+    # 一応終了するコマンドも用意しておく
+    global ModeFlag
+    if message.content == '!exit':
+        await message.channel.send('ﾉｼ')
+        sys.exit()
+    # google検索モード(次に何か入力されるとそれを検索)
+    if ModeFlag == 1:
+        kensaku = message.content
+        ModeFlag = 0
+        count = 0
+        # 日本語で検索した上位5件を順番に表示
+        for url in search(kensaku, lang="jp",num = 5):
+            await message.channel.send(url)
+            count += 1
+            if(count == 5):
+               break
+    # google検索モードへの切り替え
+    if message.content == '!google':
+        ModeFlag = 1
+        await message.channel.send('検索するワードをチャットで発言してね')
 
     if bot.user in message.mentions:
         print(f"{message.author.name}にメンションされました")
