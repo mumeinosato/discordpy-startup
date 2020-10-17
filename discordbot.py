@@ -127,7 +127,7 @@ async def ping(ctx):
                                                            
 @bot.command()
 async def gban(ctx,mode,uid,reason):
-    if ctx.author.id in [739702692393517076,634763612535390209]:
+    if ctx.author.id in [706373590869606431]:
         if mode == "add":
             try:
                 user = await bot.fetch_user(int(uid))
